@@ -23,45 +23,44 @@ require('lazy').setup({
 -- [[ Options ]] {{{
 
 -- vim.opt.path=$PWD/**                   -- Find all files under this directory
-vim.opt.breakindent = true -- Enable break indent
-vim.opt.clipboard = 'unnamedplus' -- Sync clipboard between OS and Neovim.
-vim.opt.completeopt = 'menuone,noselect' -- Set completeopt to have a better completion experience
-vim.opt.fillchars:append("eob: ") -- Empty lines below the end of a buffer
-vim.opt.fillchars:append("fold: ") -- Filling 'foldtext'
-vim.opt.fillchars:append("foldopen:┬") -- Mark the beginning of a fold
-vim.opt.fillchars:append("foldsep:│") -- Open fold middle character
-vim.opt.foldopen:append({ 'jump' }) -- Open a fold if we jump inside it
-vim.opt.hlsearch = true -- Set highlight on search
-vim.opt.ignorecase = true -- Case-insensitive searching
-vim.opt.iskeyword:remove({ '-' }) -- Treat dash separated words as a word text object
-vim.opt.listchars:append({ eol = '↵' }) -- Characters to show in 'list' mode
-vim.opt.listchars:append({ tab = '▸ ' }) -- Characters to show in 'list' mode
+vim.opt.breakindent = true                -- Enable break indent
+vim.opt.clipboard = 'unnamedplus'         -- Sync clipboard between OS and Neovim.
+vim.opt.completeopt = 'menuone,noselect'  -- Set completeopt to have a better completion experience
+vim.opt.fillchars:append("eob: ")         -- Empty lines below the end of a buffer
+vim.opt.fillchars:append("fold: ")        -- Filling 'foldtext'
+vim.opt.fillchars:append("foldopen:┬")    -- Mark the beginning of a fold
+vim.opt.fillchars:append("foldsep:│")     -- Open fold middle character
+vim.opt.foldopen:append({ 'jump' })       -- Open a fold if we jump inside it
+vim.opt.hlsearch = true                   -- Set highlight on search
+vim.opt.ignorecase = true                 -- Case-insensitive searching
+vim.opt.iskeyword:remove({ '-' })         -- Treat dash separated words as a word text object
+vim.opt.listchars:append({ eol = '↵' })   -- Characters to show in 'list' mode
+vim.opt.listchars:append({ tab = '▸ ' })  -- Characters to show in 'list' mode
 vim.opt.listchars:append({ trail = '·' }) -- Characters to show in 'list' mode
-vim.opt.matchpairs:append({ "<:>" }) -- Add angle brackets to list of matching pairs
-vim.opt.mouse = 'a' -- Enable mouse mode
-vim.opt.mouse = a -- Enable use of the mouse in all modes
-vim.opt.nrformats = '' -- Only recognize decimal numbers for increment/decrement
-vim.opt.number = true -- Show line numbers
-vim.opt.scrolloff = 5 -- Show at least 5 lines above and below the cursor
-vim.opt.shiftround = true -- >> indents to next multiple of 'shiftwidth'
-vim.opt.shiftwidth = 2 -- >> indents by 2 spaces
-vim.opt.shortmess = 'acFIT' -- Customize vim messages
-vim.opt.showmode = false -- Don't show current mode in command-line
-vim.opt.signcolumn = 'yes' -- Keep signcolumn on by default
-vim.opt.smartcase = true -- Ignore ignorecase if capital letter used in search
-vim.opt.softtabstop = 2 -- Tab key indents by 2 spaces
-vim.opt.splitbelow = true -- Open new split panes below
-vim.opt.splitright = true -- Open new split panes to the right
-vim.opt.tabstop = 2 -- Number of spaces that a <Tab> counts for
-vim.opt.termguicolors = true -- Enables 24-bit RGB color
-vim.opt.textwidth = 0 -- Disable maximum text width
-vim.opt.timeoutlen = 300 -- Time for a mapped sequence to complete
-vim.opt.undofile = true -- Save undo history
-vim.opt.updatetime = 250 -- Shorter CursorHold delay
+vim.opt.matchpairs:append({ "<:>" })      -- Add angle brackets to list of matching pairs
+vim.opt.mouse = 'a'                       -- Enable use of the mouse in all modes
+vim.opt.nrformats = ''                    -- Only recognize decimal numbers for increment/decrement
+vim.opt.number = true                     -- Show line numbers
+vim.opt.scrolloff = 5                     -- Show at least 5 lines above and below the cursor
+vim.opt.shiftround = true                 -- >> indents to next multiple of 'shiftwidth'
+vim.opt.shiftwidth = 2                    -- >> indents by 2 spaces
+vim.opt.shortmess = 'acFIT'               -- Customize vim messages
+vim.opt.showmode = false                  -- Don't show current mode in command-line
+vim.opt.signcolumn = 'yes'                -- Keep signcolumn on by default
+vim.opt.smartcase = true                  -- Ignore ignorecase if capital letter used in search
+vim.opt.softtabstop = 2                   -- Tab key indents by 2 spaces
+vim.opt.splitbelow = true                 -- Open new split panes below
+vim.opt.splitright = true                 -- Open new split panes to the right
+vim.opt.tabstop = 2                       -- Number of spaces that a <Tab> counts for
+vim.opt.termguicolors = true              -- Enables 24-bit RGB color
+vim.opt.textwidth = 0                     -- Disable maximum text width
+vim.opt.timeoutlen = 300                  -- Time for a mapped sequence to complete
+vim.opt.undofile = true                   -- Save undo history
+vim.opt.updatetime = 250                  -- Shorter CursorHold delay
 vim.opt.wildcharm = vim.api.nvim_replace_termcodes('<Tab>', true, true, true):byte() -- Allow wildmenu expansion from macros/remaps
-vim.opt.wildignorecase = true -- Case-insensitive completion of commands, filenames
-vim.opt.wildmode = "longest:full,full" -- Wildmenu completion mode
-vim.opt.wrap = false -- Don't automatically wrap long lines to the window
+vim.opt.wildignorecase = true             -- Case-insensitive completion of commands, filenames
+vim.opt.wildmode = "longest:full,full"    -- Wildmenu completion mode
+vim.opt.wrap = false                      -- Don't automatically wrap long lines to the window
 
 if vim.fn.executable('rg') then
   vim.opt.grepprg = 'rg --vimgrep --hidden --ignore-case'
