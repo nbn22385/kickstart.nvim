@@ -41,7 +41,6 @@ vim.opt.matchpairs:append({ "<:>" }) -- Add angle brackets to list of matching p
 vim.opt.mouse = 'a' -- Enable mouse mode
 vim.opt.mouse = a -- Enable use of the mouse in all modes
 vim.opt.nrformats = '' -- Only recognize decimal numbers for increment/decrement
-vim.opt.number = true -- Make line numbers default
 vim.opt.number = true -- Show line numbers
 vim.opt.scrolloff = 5 -- Show at least 5 lines above and below the cursor
 vim.opt.shiftround = true -- >> indents to next multiple of 'shiftwidth'
@@ -103,7 +102,6 @@ vim.keymap.set('n', '<Leader>=', 'gg=G<C-o><C-o>')
 
 -- Open lazygit in a new tab
 vim.keymap.set('n', '<Leader>G', ':$tab terminal lazygit<CR>')
-vim.api.nvim_create_autocmd('TermOpen', { pattern = { '*' }, command = 'startinsert' })
 
 -- Quicker split resizing
 vim.keymap.set('n', '<Leader><Left>', ':vertical resize -3<CR>')
@@ -184,14 +182,15 @@ vim.keymap.set('x', '<Leader>h', 'y:%s/<C-r>0//g<Left><Left>')
 
 -- [[ Autocommands ]] {{{
 
--- Highlight on yank
 local init_group = vim.api.nvim_create_augroup('init', { clear = true })
+
+-- Highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
+  group = init_group,
+  pattern = '*',
   callback = function()
     vim.highlight.on_yank()
   end,
-  group = init_group,
-  pattern = '*',
 })
 
 -- When editing a file, always jump to the last known cursor position.
@@ -200,11 +199,26 @@ vim.api.nvim_create_autocmd('BufReadPost', {
   callback = function(args)
     local valid_line = vim.fn.line([['"]]) >= 1 and vim.fn.line([['"]]) < vim.fn.line('$')
     local not_commit = vim.b[args.buf].filetype ~= 'commit'
-
     if valid_line and not_commit then
       vim.cmd([[normal! g`"]])
     end
   end,
+})
+
+-- Terminal window behavior
+vim.api.nvim_create_autocmd('TermOpen', {
+  pattern = '*',
+  group = init_group,
+  callback = function()
+    vim.opt.number = false
+    vim.cmd('startinsert')
+  end
+})
+
+-- Gracefully close a terminal window
+vim.api.nvim_create_autocmd('TermClose', {
+  group = init_group,
+  command = 'bdelete!' .. vim.fn.expand("<abuf>")
 })
 -- }}}
 
