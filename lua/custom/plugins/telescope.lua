@@ -20,7 +20,7 @@ return {
 		local telescope = require("telescope")
 		local builtin = require("telescope.builtin")
 		local no_preview = function()
-			return require('telescope.themes').get_dropdown({
+			return require('telescope.themes').get_ivy({
 				borderchars = {
 					{ '─', '│', '─', '│', '┌', '┐', '┘', '└' },
 					prompt = { "─", "│", " ", "│", '┌', '┐', "│", "│" },
@@ -31,7 +31,11 @@ return {
 					height = 0.5,
 					width = 0.5,
 				},
+				entry_prefix = '  ',
+				multi_icon = '✓ ',
+				selection_caret = '▶ ',
 				previewer = false,
+				results_title = '',
 			})
 		end
 
