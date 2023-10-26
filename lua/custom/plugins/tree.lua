@@ -6,7 +6,11 @@ return {
 		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
-		require("nvim-tree").setup {}
+		require("nvim-tree").setup {
+			update_focused_file = {
+				enable = true,
+			},
+		}
 
 		-- https://github.com/nvim-tree/nvim-tree.lua/wiki/Auto-Close#ppwwyyxx
 		vim.api.nvim_create_autocmd("QuitPre", {
@@ -25,6 +29,7 @@ return {
 				end
 			end
 		})
+
 		local api = require("nvim-tree.api")
 		vim.keymap.set('n', '<leader>t', api.tree.toggle, { desc = 'Toggle nvim-tree' })
 	end,
