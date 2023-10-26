@@ -56,10 +56,7 @@ return {
 			theme = 'auto',
 			component_separators = '',
 			section_separators = '',
-			disabled_filetypes = {
-				statusline = {},
-				winbar = {},
-			},
+			disabled_filetypes = { 'NvimTree', 'qf' },
 			symbols = {
 				modified = ' ●',
 				alternate_file = '#',
