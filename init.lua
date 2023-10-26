@@ -93,7 +93,7 @@ vim.keymap.set('n', '<Leader>s', ':w<CR>',
   { desc = 'Save a file' })
 
 vim.keymap.set('n', '<Leader>G', ':$tab terminal lazygit<CR>',
-  { desc = 'Open lazygit in a new tab' })
+  { desc = 'Open lazygit in a new tab', silent = true })
 
 vim.keymap.set('n', '<Leader>gf', '^f/gf',
   { desc = 'Go to first file on the line' })
