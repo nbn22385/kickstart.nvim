@@ -168,6 +168,11 @@ vim.keymap.set('n', 'C', '"_C', { desc = 'Changed text goes to the black hole re
 vim.keymap.set('v', 'c', '"_c', { desc = 'Changed text goes to the black hole register' })
 vim.keymap.set('v', 'C', '"_C', { desc = 'Changed text goes to the black hole register' })
 
+vim.keymap.set('n', 'd', '"_d', { desc = 'Deleted text goes to the black hole register' })
+vim.keymap.set('n', 'D', '"_D', { desc = 'Deleted text goes to the black hole register' })
+vim.keymap.set('v', 'd', '"_d', { desc = 'Deleted text goes to the black hole register' })
+vim.keymap.set('v', 'D', '"_D', { desc = 'Deleted text goes to the black hole register' })
+
 vim.keymap.set('x', 'p', '"_dP', { desc = 'Selected text goes to the black hole register when pasting' })
 
 vim.keymap.set('x', '<Leader>h', 'y:%s/<C-r>0//g<Left><Left>',
