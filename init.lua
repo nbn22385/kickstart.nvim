@@ -1,6 +1,6 @@
 -- [[ Plugin manager ]] {{{
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.maplocalleader = ','
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -22,45 +22,44 @@ require('lazy').setup({
 
 -- [[ Options ]] {{{
 
--- vim.opt.path=$PWD/**                   -- Find all files under this directory
-vim.opt.breakindent = true                -- Enable break indent
-vim.opt.clipboard = 'unnamedplus'         -- Sync clipboard between OS and Neovim.
-vim.opt.completeopt = 'menuone,noselect'  -- Set completeopt to have a better completion experience
-vim.opt.fillchars:append("eob: ")         -- Empty lines below the end of a buffer
-vim.opt.fillchars:append("fold: ")        -- Filling 'foldtext'
-vim.opt.fillchars:append("foldopen:┬")    -- Mark the beginning of a fold
-vim.opt.fillchars:append("foldsep:│")     -- Open fold middle character
-vim.opt.foldopen:append({ 'jump' })       -- Open a fold if we jump inside it
-vim.opt.hlsearch = true                   -- Set highlight on search
-vim.opt.ignorecase = true                 -- Case-insensitive searching
-vim.opt.iskeyword:remove({ '-' })         -- Treat dash separated words as a word text object
-vim.opt.listchars:append({ eol = '↵' })   -- Characters to show in 'list' mode
-vim.opt.listchars:append({ tab = '▸ ' })  -- Characters to show in 'list' mode
+vim.opt.breakindent = true -- Enable break indent
+vim.opt.clipboard = 'unnamedplus' -- Sync clipboard between OS and Neovim.
+vim.opt.completeopt = 'menuone,noselect' -- Set completeopt to have a better completion experience
+vim.opt.fillchars:append("eob: ") -- Empty lines below the end of a buffer
+vim.opt.fillchars:append("fold: ") -- Filling 'foldtext'
+vim.opt.fillchars:append("foldopen:┬") -- Mark the beginning of a fold
+vim.opt.fillchars:append("foldsep:│") -- Open fold middle character
+vim.opt.foldopen:append({ 'jump' }) -- Open a fold if we jump inside it
+vim.opt.hlsearch = true -- Set highlight on search
+vim.opt.ignorecase = true -- Case-insensitive searching
+vim.opt.iskeyword:remove({ '-' }) -- Treat dash separated words as a word text object
+vim.opt.listchars:append({ eol = '↵' }) -- Characters to show in 'list' mode
+vim.opt.listchars:append({ tab = '▸ ' }) -- Characters to show in 'list' mode
 vim.opt.listchars:append({ trail = '·' }) -- Characters to show in 'list' mode
-vim.opt.matchpairs:append({ "<:>" })      -- Add angle brackets to list of matching pairs
-vim.opt.mouse = 'a'                       -- Enable use of the mouse in all modes
-vim.opt.nrformats = ''                    -- Only recognize decimal numbers for increment/decrement
-vim.opt.number = true                     -- Show line numbers
-vim.opt.scrolloff = 5                     -- Show at least 5 lines above and below the cursor
-vim.opt.shiftround = true                 -- >> indents to next multiple of 'shiftwidth'
-vim.opt.shiftwidth = 2                    -- >> indents by 2 spaces
-vim.opt.shortmess = 'acFIT'               -- Customize vim messages
-vim.opt.showmode = false                  -- Don't show current mode in command-line
-vim.opt.signcolumn = 'yes'                -- Keep signcolumn on by default
-vim.opt.smartcase = true                  -- Ignore ignorecase if capital letter used in search
-vim.opt.softtabstop = 2                   -- Tab key indents by 2 spaces
-vim.opt.splitbelow = true                 -- Open new split panes below
-vim.opt.splitright = true                 -- Open new split panes to the right
-vim.opt.tabstop = 2                       -- Number of spaces that a <Tab> counts for
-vim.opt.termguicolors = true              -- Enables 24-bit RGB color
-vim.opt.textwidth = 0                     -- Disable maximum text width
-vim.opt.timeoutlen = 300                  -- Time for a mapped sequence to complete
-vim.opt.undofile = true                   -- Save undo history
-vim.opt.updatetime = 250                  -- Shorter CursorHold delay
+vim.opt.matchpairs:append({ "<:>" }) -- Add angle brackets to list of matching pairs
+vim.opt.mouse = 'a' -- Enable use of the mouse in all modes
+vim.opt.nrformats = '' -- Only recognize decimal numbers for increment/decrement
+vim.opt.number = true -- Show line numbers
+vim.opt.scrolloff = 5 -- Show at least 5 lines above and below the cursor
+vim.opt.shiftround = true -- >> indents to next multiple of 'shiftwidth'
+vim.opt.shiftwidth = 2 -- >> indents by 2 spaces
+vim.opt.shortmess = 'acFIT' -- Customize vim messages
+vim.opt.showmode = false -- Don't show current mode in command-line
+vim.opt.signcolumn = 'yes' -- Keep signcolumn on by default
+vim.opt.smartcase = true -- Ignore ignorecase if capital letter used in search
+vim.opt.softtabstop = 2 -- Tab key indents by 2 spaces
+vim.opt.splitbelow = true -- Open new split panes below
+vim.opt.splitright = true -- Open new split panes to the right
+vim.opt.tabstop = 2 -- Number of spaces that a <Tab> counts for
+vim.opt.termguicolors = true -- Enables 24-bit RGB color
+vim.opt.textwidth = 0 -- Disable maximum text width
+vim.opt.timeoutlen = 300 -- Time for a mapped sequence to complete
+vim.opt.undofile = true -- Save undo history
+vim.opt.updatetime = 250 -- Shorter CursorHold delay
 vim.opt.wildcharm = vim.api.nvim_replace_termcodes('<Tab>', true, true, true):byte() -- Allow wildmenu expansion from macros/remaps
-vim.opt.wildignorecase = true             -- Case-insensitive completion of commands, filenames
-vim.opt.wildmode = "longest:full,full"    -- Wildmenu completion mode
-vim.opt.wrap = false                      -- Don't automatically wrap long lines to the window
+vim.opt.wildignorecase = true -- Case-insensitive completion of commands, filenames
+vim.opt.wildmode = "longest:full,full" -- Wildmenu completion mode
+vim.opt.wrap = false -- Don't automatically wrap long lines to the window
 
 if vim.fn.executable('rg') then
   vim.opt.grepprg = 'rg --vimgrep --hidden --ignore-case'
@@ -77,106 +76,108 @@ end, { desc = 'Grep and open the quickfix window with results' })
 
 -- [[ Keymaps ]] {{{
 
--- Keymaps for better default experience
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>')
+-- local desc = { desc ='Keymaps for better default experience'}
+-- vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', desc)
 
--- Save a file
-vim.keymap.set('n', '<Leader>w', ':w<CR>')
+vim.keymap.set('i', '<C-c>', '<Esc>l', { desc = 'Exit insert mode' })
+vim.keymap.set('i', '<Esc>', '<Esc>l', { desc = 'Exit insert mode' })
+vim.keymap.set('i', 'kj', '<Esc>l', { desc = 'Exit insert mode' })
 
--- Go to first file on the line
-vim.keymap.set('n', '<Leader>gf', '^f/gf')
+vim.keymap.set({ "i", "n" }, "<Esc>", "<Cmd>noh<CR><Esc>",
+  { desc = "Escape and clear hlsearch" })
 
--- Replace all occurrences of word under cursor
-vim.keymap.set('n', '<Leader>h', ':%s/<C-r><C-w>//g<Left><Left>')
+vim.keymap.set('n', '<C-c>', '<Esc>',
+  { desc = 'Disable vim\'s exit message when pressing C-c' })
 
--- Open new line and stay in normal mode
-vim.keymap.set('n', '<Leader>o', 'o<ESC>')
-vim.keymap.set('n', '<Leader>O', 'O<ESC>')
+vim.keymap.set('n', '<Leader>s', ':w<CR>',
+  { desc = 'Save a file' })
 
--- Use wildmenu to quickly switch buffers
-vim.keymap.set('n', '<Leader><Tab>', ':buffer<Space><Tab>')
+vim.keymap.set('n', '<Leader>G', ':$tab terminal lazygit<CR>',
+  { desc = 'Open lazygit in a new tab' })
 
--- Format entire file
-vim.keymap.set('n', '<Leader>=', 'gg=G<C-o><C-o>')
+vim.keymap.set('n', '<Leader>gf', '^f/gf',
+  { desc = 'Go to first file on the line' })
 
--- Open lazygit in a new tab
-vim.keymap.set('n', '<Leader>G', ':$tab terminal lazygit<CR>')
+vim.keymap.set('n', '<Leader>h', ':%s/<C-r><C-w>//g<Left><Left>',
+  { desc = 'Replace all occurrences of word under cursor' })
 
--- Quicker split resizing
-vim.keymap.set('n', '<Leader><Left>', ':vertical resize -3<CR>')
-vim.keymap.set('n', '<Leader><Right>', ':vertical resize +3<CR>')
-vim.keymap.set('n', '<Leader><Up>', ':resize +3<CR>')
-vim.keymap.set('n', '<Leader><Down>', ':resize -3<CR>')
+vim.keymap.set('n', '<Leader>O', 'O<ESC>',
+  { desc = 'Open new line above and stay in normal mode' })
 
--- Toggle between alternate files
-vim.keymap.set('n', '<Backspace>', '<C-^>')
---
--- Add relative vertical movements to the jumplist
-vim.keymap.set('n', 'j', function()
-  return vim.v.count > 1 and "m'" .. vim.v.count .. "gj" or "gj"
-end, { expr = true })
-vim.keymap.set('n', 'k', function()
-  return vim.v.count > 1 and "m'" .. vim.v.count .. "gk" or "gk"
-end, { expr = true })
+vim.keymap.set('n', '<Leader>o', 'o<ESC>',
+  { desc = 'Open new line below and stay in normal mode' })
 
--- Change operations are directed to the black hole register
-vim.keymap.set('n', 'c', '"_c')
-vim.keymap.set('n', 'C', '"_C')
+vim.keymap.set('n', '<Leader><Tab>', ':buffer<Space><Tab>',
+  { desc = 'Use wildmenu to quickly switch buffers' })
 
--- Joining lines will keep cursor position
-vim.keymap.set('n', 'J', 'mzJ`z')
+vim.keymap.set('n', '<Leader>=', 'gg=G<C-o><C-o>',
+  { desc = 'Format entire file' })
 
--- Disable vim's exit message when pressing C-c
-vim.keymap.set('n', '<C-c>', '<Esc>')
+vim.keymap.set('n', '<Leader><Left>', ':vertical resize -3<CR>', { desc = 'Decrease vertical split width' })
+vim.keymap.set('n', '<Leader><Right>', ':vertical resize +3<CR>', { desc = 'Increase vertical split width' })
+vim.keymap.set('n', '<Leader><Up>', ':resize +3<CR>', { desc = 'Increase horizontal split width' })
+vim.keymap.set('n', '<Leader><Down>', ':resize -3<CR>', { desc = 'Increase horizontal split width' })
 
--- +/- -> Increment/decrement numbers in normal or visual mode
-vim.keymap.set('n', '+', '<C-a>')
-vim.keymap.set('n', '-', '<C-x>')
-vim.keymap.set('x', '+', 'g<C-a>gv')
-vim.keymap.set('x', '-', 'g<C-x>gv')
+vim.keymap.set('n', '<Backspace>', '<C-^>',
+  { desc = 'Toggle between alternate files' })
 
--- <CTRL-W>h/j/k/l -> Move windows left/up/down/right
-vim.keymap.set('n', '<C-w>h', '<C-w>H')
-vim.keymap.set('n', '<C-w>j', '<C-w>J')
-vim.keymap.set('n', '<C-w>k', '<C-w>K')
-vim.keymap.set('n', '<C-w>l', '<C-w>L')
+vim.keymap.set('n', 'j', function() return vim.v.count > 1 and "m'" .. vim.v.count .. "gj" or "gj" end,
+  { desc = 'Add relative vertical movements to the jumplist', expr = true })
 
--- Navigate buffers
-vim.keymap.set('n', '[B', ':bfirst<CR>', { silent = true })
-vim.keymap.set('n', ']b', ':bnext<CR>', { silent = true })
-vim.keymap.set('n', '[b', ':bprevious<CR>', { silent = true })
-vim.keymap.set('n', ']B', ':blast<CR>', { silent = true })
+vim.keymap.set('n', 'k', function() return vim.v.count > 1 and "m'" .. vim.v.count .. "gk" or "gk" end,
+  { desc = 'Add relative vertical movements to the jumplist', expr = true })
 
--- Navigate location list entries
-vim.keymap.set('n', '[L', ':lfirst<CR>zz', { silent = true })
-vim.keymap.set('n', ']l', ':lnext<CR>zz', { silent = true })
-vim.keymap.set('n', '[l', ':lprevious<CR>zz', { silent = true })
-vim.keymap.set('n', ']L', ':llast<CR>zz', { silent = true })
+vim.keymap.set('n', 'J', 'mzJ`z',
+  { desc = 'Joining lines will keep cursor position' })
 
--- Navigate quickfix list entries
-vim.keymap.set('n', '[Q', ':cfirst<CR>zz', { silent = true })
-vim.keymap.set('n', ']q', ':cnext<CR>zz', { silent = true })
-vim.keymap.set('n', '[q', ':cprevious<CR>zz', { silent = true })
-vim.keymap.set('n', ']Q', ':clast<CR>zz', { silent = true })
+vim.keymap.set('n', '+', '<C-a>', { desc = 'Increment numbers in normal mode' })
+vim.keymap.set('n', '-', '<C-x>', { desc = 'Decrement numbers in normal mode' })
+vim.keymap.set('x', '+', 'g<C-a>gv', { desc = 'Increment numbers in visual mode' })
+vim.keymap.set('x', '-', 'g<C-x>gv', { desc = 'Decrement numbers in visual mode' })
 
--- Exit insert mode faster
-vim.keymap.set('i', '<C-c>', '<Esc>l')
-vim.keymap.set('i', '<Esc>', '<Esc>l')
-vim.keymap.set('i', 'kj', '<Esc>l')
+vim.keymap.set('n', '<C-w>h', '<C-w>H', { desc = 'Move window left' })
+vim.keymap.set('n', '<C-w>j', '<C-w>J', { desc = 'Move window down' })
+vim.keymap.set('n', '<C-w>k', '<C-w>K', { desc = 'Move window up' })
+vim.keymap.set('n', '<C-w>l', '<C-w>L', { desc = 'Move window right' })
 
--- Command line begin/end line
-vim.keymap.set('c', '<C-a>', '<Home>')
-vim.keymap.set('c', '<C-e>', '<End>')
+vim.keymap.set('n', '[B', ':bfirst<CR>', { silent = true, desc = 'Go to first buffer' })
+vim.keymap.set('n', ']b', ':bnext<CR>', { silent = true, desc = 'Go to next buffer' })
+vim.keymap.set('n', '[b', ':bprevious<CR>', { silent = true, desc = 'Go to previous buffer' })
+vim.keymap.set('n', ']B', ':blast<CR>', { silent = true, desc = 'Go to last buffer' })
 
--- Navigate through partial search matches with Tab/S-Tab
-vim.keymap.set('c', '<Tab>', "getcmdtype() =~ '[/?]' ? '<C-g>' : '<Tab>'", { expr = true })
-vim.keymap.set('c', '<S-Tab>', "getcmdtype() =~ '[/?]' ? '<C-t>' : '<S-Tab>'", { expr = true })
+vim.keymap.set('n', '[L', ':lfirst<CR>zz', { silent = true, desc = 'Go to first location list entry' })
+vim.keymap.set('n', ']l', ':lnext<CR>zz', { silent = true, desc = 'Go to next location list entry' })
+vim.keymap.set('n', '[l', ':lprevious<CR>zz', { silent = true, desc = 'Go to previous location list entry' })
+vim.keymap.set('n', ']L', ':llast<CR>zz', { silent = true, desc = 'Go to last location list entry' })
 
--- Don't overwrite paste buffer when pasting over visual selection
-vim.keymap.set('x', 'p', '_dP')
+vim.keymap.set('n', '[Q', ':cfirst<CR>zz', { silent = true, desc = 'Go to first quickfix list entry' })
+vim.keymap.set('n', ']q', ':cnext<CR>zz', { silent = true, desc = 'Go to next quickfix list entry' })
+vim.keymap.set('n', '[q', ':cprevious<CR>zz', { silent = true, desc = 'Go to previous quickfix list entry' })
+vim.keymap.set('n', ']Q', ':clast<CR>zz', { silent = true, desc = 'Go to last quickfix list entry' })
 
--- Replace all occurrences of visual selection
-vim.keymap.set('x', '<Leader>h', 'y:%s/<C-r>0//g<Left><Left>')
+vim.keymap.set('c', '<C-a>', '<Home>', { desc = 'Go to the beginning of the command line' })
+vim.keymap.set('c', '<C-e>', '<End>', { desc = 'Go to the end of the command line' })
+
+vim.keymap.set('c', '<Tab>', "getcmdtype() =~ '[/?]' ? '<C-g>' : '<Tab>'",
+  { desc = 'Navigate forwards through partial matches', expr = true })
+vim.keymap.set('c', '<S-Tab>', "getcmdtype() =~ '[/?]' ? '<C-t>' : '<S-Tab>'",
+  { desc = 'Navigate backwards through partial matches', expr = true })
+
+vim.keymap.set('n', 'c', '"_c', { desc = 'Changed text goes to the black hole register' })
+vim.keymap.set('n', 'C', '"_C', { desc = 'Changed text goes to the black hole register' })
+vim.keymap.set('v', 'c', '"_c', { desc = 'Changed text goes to the black hole register' })
+vim.keymap.set('v', 'C', '"_C', { desc = 'Changed text goes to the black hole register' })
+
+vim.keymap.set('n', 'd', '"_d', { desc = 'Deleted text goes to the black hole register' })
+vim.keymap.set('n', 'D', '"_D', { desc = 'Deleted text goes to the black hole register' })
+vim.keymap.set('v', 'd', '"_d', { desc = 'Deleted text goes to the black hole register' })
+vim.keymap.set('v', 'D', '"_D', { desc = 'Deleted text goes to the black hole register' })
+
+vim.keymap.set('x', 'p', '"_dP', { desc = 'Selected text goes to the black hole register when pasting' })
+
+vim.keymap.set('x', '<Leader>h', 'y:%s/<C-r>0//g<Left><Left>',
+  { desc = 'Replace all occurrences of text under cursor' })
+
 -- }}}
 
 -- [[ Autocommands ]] {{{
@@ -219,6 +220,6 @@ vim.api.nvim_create_autocmd('TermClose', {
   group = init_group,
   command = 'bdelete!' .. vim.fn.expand("<abuf>")
 })
--- }}}
 
 -- vim: fdm=marker ts=2 sts=2 sw=2 et
+-- }}}
