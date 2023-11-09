@@ -19,7 +19,8 @@ return {
 	config = function()
 		local telescope = require("telescope")
 		local builtin = require("telescope.builtin")
-		local no_preview = function()
+		local no_preview = function(prompt_pre)
+			prompt_pre = prompt_pre == nil and ' : ' or prompt_pre .. ': '
 			return require('telescope.themes').get_ivy({
 				borderchars = {
 					{ '─', '│', '─', '│', '┌', '┐', '┘', '└' },
@@ -31,11 +32,12 @@ return {
 					height = 0.5,
 					width = 0.5,
 				},
-				entry_prefix = '  ',
 				multi_icon = '✓ ',
 				selection_caret = '▶ ',
 				previewer = false,
-				results_title = '',
+				results_title = false,
+				prompt_title = false,
+				prompt_prefix = prompt_pre,
 			})
 		end
 
@@ -52,17 +54,17 @@ return {
 			},
 		}
 
-		vim.keymap.set('n', '<leader>?', function() builtin.oldfiles(no_preview()) end, { desc = '[?] Find recently opened files' })
-		vim.keymap.set('n', '<leader><space>', function() builtin.buffers(no_preview()) end, { desc = '[ ] Find existing buffers' })
-		vim.keymap.set('n', '<leader>/', function() builtin.current_buffer_fuzzy_find(no_preview()) end, { desc = '[/] Fuzzy find in current buffer' })
-		vim.keymap.set('n', '<leader>f', function() builtin.git_files(no_preview()) end, { desc = 'Find Git [f]iles' })
-		vim.keymap.set('n', '<leader>F', function() builtin.find_files(no_preview()) end, { desc = 'Find All [F]iles' })
-		vim.keymap.set('n', '<leader>H', function() builtin.help_tags(no_preview()) end, { desc = 'Find [h]elptags' })
-		vim.keymap.set('n', '<leader>W', function() builtin.grep_string(no_preview()) end, { desc = 'Find current [w]ord' })
-		vim.keymap.set('n', '<leader>g', function() builtin.live_grep(no_preview()) end, { desc = 'Find by [g]rep' })
-		vim.keymap.set('n', '<leader>d', function() builtin.diagnostics(no_preview()) end, { desc = 'Find [d]iagnostics' })
-		vim.keymap.set('n', '<leader>r', function() builtin.resume(no_preview()) end, { desc = 'Find [r]esume' })
-		vim.keymap.set('n', '<leader>C', function() builtin.colorscheme(no_preview()) end, { desc = 'Find [C]olorschemes' })
+		vim.keymap.set('n', '<leader>h', function() builtin.oldfiles(no_preview('Old files')) end, { desc = '[?] Find recently opened files' })
+		vim.keymap.set('n', '<leader>b', function() builtin.buffers(no_preview('Buffers')) end, { desc = '[ ] Find existing buffers' })
+		vim.keymap.set('n', '<leader>/', function() builtin.current_buffer_fuzzy_find(no_preview('Find in buffer')) end, { desc = '[/] Fuzzy find in current buffer' })
+		vim.keymap.set('n', '<leader>f', function() builtin.git_files(no_preview('Git files')) end, { desc = 'Find Git [f]iles' })
+		vim.keymap.set('n', '<leader>F', function() builtin.find_files(no_preview('All files')) end, { desc = 'Find All [F]iles' })
+		vim.keymap.set('n', '<leader>H', function() builtin.help_tags(no_preview('Help tags')) end, { desc = 'Find [h]elptags' })
+		vim.keymap.set('n', '<leader>W', function() builtin.grep_string(no_preview('Find current word')) end, { desc = 'Find current [w]ord' })
+		vim.keymap.set('n', '<leader>g', function() builtin.live_grep(no_preview('Find in files')) end, { desc = 'Find by [g]rep' })
+		vim.keymap.set('n', '<leader>d', function() builtin.diagnostics(no_preview('Diagnostics')) end, { desc = 'Find [d]iagnostics' })
+		vim.keymap.set('n', '<leader>r', function() builtin.resume(no_preview('Find (resume)')) end, { desc = 'Find [r]esume' })
+		vim.keymap.set('n', '<leader>C', function() builtin.colorscheme(no_preview('Colorschemes')) end, { desc = 'Find [C]olorschemes' })
 
 		telescope.load_extension("fzf")
 	end,
