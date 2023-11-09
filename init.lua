@@ -92,7 +92,7 @@ vim.keymap.set('n', '<C-c>', '<Esc>',
 vim.keymap.set('n', '<Leader>s', ':w<CR>',
   { desc = 'Save a file' })
 
-vim.keymap.set('n', '<Leader>G', ':$tab terminal lazygit<CR>',
+vim.keymap.set('n', '<Leader>G', ':$tabnew | terminal lazygit<CR>',
   { desc = 'Open lazygit in a new tab', silent = true })
 
 vim.keymap.set('n', '<Leader>gf', '^f/gf',
@@ -214,6 +214,16 @@ vim.api.nvim_create_autocmd('TermOpen', {
 vim.api.nvim_create_autocmd('TermClose', {
   group = init_group,
   command = 'bdelete!' .. vim.fn.expand("<abuf>")
+})
+
+-- Resize splits if window gets resized
+vim.api.nvim_create_autocmd({ "VimResized" }, {
+  group = init_group,
+  callback = function()
+    local current_tab = vim.fn.tabpagenr()
+    vim.cmd("tabdo wincmd =")
+    vim.cmd("tabnext " .. current_tab)
+  end,
 })
 
 -- vim: fdm=marker ts=2 sts=2 sw=2 et
