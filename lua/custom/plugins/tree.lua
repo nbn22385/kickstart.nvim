@@ -31,6 +31,6 @@ return {
 		})
 
 		local api = require("nvim-tree.api")
-		vim.keymap.set('n', '<leader>t', api.tree.toggle, { desc = 'Toggle nvim-tree' })
+		vim.keymap.set('n', '<leader>e', api.tree.toggle, { desc = 'Toggle nvim-tree' })
 	end,
 }
