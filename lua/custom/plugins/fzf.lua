@@ -1,0 +1,34 @@
+return {}
+-- return {
+--   "ibhagwan/fzf-lua",
+--   -- optional for icon support
+--   dependencies = { "nvim-tree/nvim-web-devicons" },
+--   config = function()
+--     -- calling `setup` is optional for customization
+--     require("fzf-lua").setup({
+-- 			winopts = {
+--         preview = { hidden = "hidden" },
+-- 				on_create = function()
+-- 				end,
+-- 			}
+-- 		})
+--
+--     vim.keymap.set("n", "<leader>C", "<cmd>lua require('fzf-lua').colorschemes()<CR>", { silent = true })
+--     vim.keymap.set("n", "<leader>f", "<cmd>lua require('fzf-lua').git_files()<CR>", { silent = true })
+--     vim.keymap.set("n", "<leader>F", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
+--     vim.keymap.set("n", "<leader>H", "<cmd>lua require('fzf-lua').help_tags()<CR>", { silent = true })
+--     vim.keymap.set("n", "<leader>/", "<cmd>lua require('fzf-lua').grep_curbuf()<CR>", { silent = true })
+--     vim.keymap.set("n", "<leader>R", "<cmd>lua require('fzf-lua').grep_visual()<CR>", { silent = true })
+-- 		-- vim.keymap.set('n', '<leader>?', function() builtin.oldfiles(no_preview()) end, { desc = '[?] Find recently opened files' })
+-- 		-- vim.keymap.set('n', '<leader><space>', function() builtin.buffers(no_preview()) end, { desc = '[ ] Find existing buffers' })
+-- 		-- vim.keymap.set('n', '<leader>/', function() builtin.current_buffer_fuzzy_find(no_preview()) end, { desc = '[/] Fuzzy find in current buffer' })
+-- 		-- vim.keymap.set('n', '<leader>f', function() builtin.git_files(no_preview()) end, { desc = 'Find Git [f]iles' })
+-- 		-- vim.keymap.set('n', '<leader>F', function() builtin.find_files(no_preview()) end, { desc = 'Find All [F]iles' })
+-- 		-- vim.keymap.set('n', '<leader>H', function() builtin.help_tags(no_preview()) end, { desc = 'Find [h]elptags' })
+-- 		-- vim.keymap.set('n', '<leader>W', function() builtin.grep_string(no_preview()) end, { desc = 'Find current [w]ord' })
+-- 		-- vim.keymap.set('n', '<leader>g', function() builtin.live_grep(no_preview()) end, { desc = 'Find by [g]rep' })
+-- 		-- vim.keymap.set('n', '<leader>d', function() builtin.diagnostics(no_preview()) end, { desc = 'Find [d]iagnostics' })
+-- 		-- vim.keymap.set('n', '<leader>r', function() builtin.resume(no_preview()) end, { desc = 'Find [r]esume' })
+-- 		-- vim.keymap.set('n', '<leader>C', function() builtin.colorscheme(no_preview()) end, { desc = 'Find [C]olorschemes' })
+--   end
+-- }
