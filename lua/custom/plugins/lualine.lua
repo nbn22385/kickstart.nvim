@@ -41,10 +41,27 @@ local function modes()
 end
 
 local function progressbar()
-  local chars = { '█', '▇', '▆', '▅', '▄', '▃', '▂', '▁', '' }
-  local line_ratio = 1.0 * vim.fn.line('.') / vim.fn.line('$')
-	local index = vim.fn.float2nr(vim.fn.ceil(line_ratio * (vim.fn.len(chars)-1)))
+	local chars = { '█', '▇', '▆', '▅', '▄', '▃', '▂', '▁', '' }
+	local line_ratio = 1.0 * vim.fn.line('.') / vim.fn.line('$')
+	local index = vim.fn.float2nr(vim.fn.ceil(line_ratio * (vim.fn.len(chars) - 1)))
 	return chars[index]
+end
+
+local function spellstatus()
+	return vim.opt.spell:get() and 'SPELL' or ''
+end
+
+local function lsp_info()
+	local lsps = vim.lsp.get_active_clients({ bufnr = vim.fn.bufnr() })
+	if lsps and #lsps > 0 then
+		local names = {}
+		for _, lsp in ipairs(lsps) do
+			table.insert(names, lsp.name)
+		end
+		return string.format("%s", table.concat(names, ", "))
+	else
+		return ""
+	end
 end
 
 return {
@@ -72,7 +89,7 @@ return {
 		},
 		sections = {
 			lualine_a = { modes },
-			lualine_b = { 'diagnostics' },
+			lualine_b = {},
 			lualine_c = {
 				{
 					'filename',
@@ -86,7 +103,7 @@ return {
 					}
 				}
 			},
-			lualine_x = { 'location', 'progress', progressbar },
+			lualine_x = { lsp_info, 'diagnostics', spellstatus, 'location', 'progress', progressbar },
 			lualine_y = { { 'branch', icon = '' } },
 			lualine_z = {}
 		},
