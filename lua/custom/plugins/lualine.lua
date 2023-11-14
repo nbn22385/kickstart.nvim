@@ -41,9 +41,9 @@ local function modes()
 end
 
 local function progressbar()
-  local chars = { '', '█', '▇', '▆', '▅', '▄', '▃', '▂', '▁' }
+  local chars = { '█', '▇', '▆', '▅', '▄', '▃', '▂', '▁', '' }
   local line_ratio = 1.0 * vim.fn.line('.') / vim.fn.line('$')
-	local index = vim.fn.float2nr(math.ceil(line_ratio * (#chars-1)))
+	local index = vim.fn.float2nr(vim.fn.ceil(line_ratio * (vim.fn.len(chars)-1)))
 	return chars[index]
 end
 
