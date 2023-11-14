@@ -40,6 +40,13 @@ local function modes()
 	return mode_map[vim.api.nvim_get_mode().mode] or "_"
 end
 
+local function progressbar()
+  local chars = { '', '█', '▇', '▆', '▅', '▄', '▃', '▂', '▁' }
+  local line_ratio = 1.0 * vim.fn.line('.') / vim.fn.line('$')
+	local index = vim.fn.float2nr(math.ceil(line_ratio * (#chars-1)))
+	return chars[index]
+end
+
 return {
 	-- Set lualine as statusline
 	'nvim-lualine/lualine.nvim',
@@ -58,16 +65,28 @@ return {
 			section_separators = '',
 			disabled_filetypes = { 'NvimTree', 'qf' },
 			symbols = {
-				modified = ' ●',
+				modified = '',
 				alternate_file = '#',
 				directory = '',
 			},
 		},
 		sections = {
 			lualine_a = { modes },
-			lualine_b = { 'diff', 'diagnostics' },
-			lualine_c = { 'filename' },
-			lualine_x = { 'location', 'progress' },
+			lualine_b = { 'diagnostics' },
+			lualine_c = {
+				{
+					'filename',
+					file_status = true,
+					path = 1,
+					symbols = {
+						modified = '',
+						readonly = '',
+						unnamed = '[No Name]',
+						newfile = '[New]',
+					}
+				}
+			},
+			lualine_x = { 'location', 'progress', progressbar },
 			lualine_y = { { 'branch', icon = '' } },
 			lualine_z = {}
 		},
