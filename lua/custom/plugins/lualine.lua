@@ -88,8 +88,16 @@ return {
 			},
 		},
 		sections = {
-			lualine_a = { modes },
-			lualine_b = {},
+			lualine_a = {},
+			lualine_b = {
+				{
+					modes,
+					color = function()
+						local hlgroup = vim.api.nvim_get_hl(0, { name = "lualine_c_normal" })
+						return { bg = '#' .. string.format("%06x", hlgroup.bg) }
+					end,
+				},
+			},
 			lualine_c = {
 				{
 					'filename',
@@ -103,8 +111,8 @@ return {
 					}
 				}
 			},
-			lualine_x = { lsp_info, 'diagnostics', spellstatus, 'location', 'progress', progressbar },
-			lualine_y = { { 'branch', icon = '' } },
+			lualine_x = { lsp_info, 'diagnostics', spellstatus, 'location', 'progress', progressbar, { 'branch', icon = '', color = 'lualine_a_inactive' } },
+			lualine_y = {},
 			lualine_z = {}
 		},
 		inactive_sections = {
