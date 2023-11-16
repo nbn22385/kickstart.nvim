@@ -25,15 +25,13 @@ require('lazy').setup({
 vim.opt.breakindent = true -- Enable break indent
 vim.opt.clipboard = 'unnamedplus' -- Sync clipboard between OS and Neovim.
 vim.opt.completeopt = 'menuone,noselect' -- Set completeopt to have a better completion experience
-vim.opt.fillchars = { foldopen = '', foldclose = '', fold = ' ', foldsep = ' ', eob = ' ' }
+vim.opt.fillchars:append({ foldopen = '', foldclose = '', fold = ' ', foldsep = ' ', eob = ' ' })
 vim.opt.foldcolumn = 'auto' -- resize to the minimum amount of folds
 vim.opt.foldopen:append({ 'jump' }) -- Open a fold if we jump inside it
 vim.opt.hlsearch = true -- Set highlight on search
 vim.opt.ignorecase = true -- Case-insensitive searching
 vim.opt.iskeyword:remove({ '-' }) -- Treat dash separated words as a word text object
-vim.opt.listchars:append({ eol = '↵' }) -- Characters to show in 'list' mode
-vim.opt.listchars:append({ tab = '▸ ' }) -- Characters to show in 'list' mode
-vim.opt.listchars:append({ trail = '·' }) -- Characters to show in 'list' mode
+vim.opt.listchars:append({ eol = '↵', space = '·', tab = '▸ ', trail = '·' })
 vim.opt.matchpairs:append({ "<:>" }) -- Add angle brackets to list of matching pairs
 vim.opt.mouse = 'a' -- Enable use of the mouse in all modes
 vim.opt.nrformats = '' -- Only recognize decimal numbers for increment/decrement
@@ -87,7 +85,7 @@ vim.keymap.set({ "i", "n" }, "<Esc>", "<Cmd>noh<CR><Esc>",
 vim.keymap.set('n', '<C-c>', '<Esc>',
   { desc = 'Disable vim\'s exit message when pressing C-c' })
 
-vim.keymap.set('n', '<Leader>s', ':w<CR>',
+vim.keymap.set('n', '<Leader>w', ':w<CR>',
   { desc = 'Save a file' })
 
 vim.keymap.set('n', '<Leader>G', ':$tabnew | terminal lazygit<CR>',
