@@ -26,7 +26,6 @@ vim.opt.breakindent = true -- Enable break indent
 vim.opt.clipboard = 'unnamedplus' -- Sync clipboard between OS and Neovim.
 vim.opt.completeopt = 'menuone,noselect' -- Set completeopt to have a better completion experience
 vim.opt.fillchars:append({ foldopen = '', foldclose = '', fold = ' ', foldsep = ' ', eob = ' ' })
-vim.opt.foldcolumn = 'auto' -- resize to the minimum amount of folds
 vim.opt.foldopen:append({ 'jump' }) -- Open a fold if we jump inside it
 vim.opt.hlsearch = true -- Set highlight on search
 vim.opt.ignorecase = true -- Case-insensitive searching
