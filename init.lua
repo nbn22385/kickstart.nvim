@@ -25,10 +25,8 @@ require('lazy').setup({
 vim.opt.breakindent = true -- Enable break indent
 vim.opt.clipboard = 'unnamedplus' -- Sync clipboard between OS and Neovim.
 vim.opt.completeopt = 'menuone,noselect' -- Set completeopt to have a better completion experience
-vim.opt.fillchars:append("eob: ") -- Empty lines below the end of a buffer
-vim.opt.fillchars:append("fold: ") -- Filling 'foldtext'
-vim.opt.fillchars:append("foldopen:┬") -- Mark the beginning of a fold
-vim.opt.fillchars:append("foldsep:│") -- Open fold middle character
+vim.opt.fillchars = { foldopen = '', foldclose = '', fold = ' ', foldsep = ' ', eob = ' ' }
+vim.opt.foldcolumn = 'auto' -- resize to the minimum amount of folds
 vim.opt.foldopen:append({ 'jump' }) -- Open a fold if we jump inside it
 vim.opt.hlsearch = true -- Set highlight on search
 vim.opt.ignorecase = true -- Case-insensitive searching
@@ -102,10 +100,10 @@ vim.keymap.set('n', '<Leader>h', ':%s/<C-r><C-w>//g<Left><Left>',
   { desc = 'Replace all occurrences of word under cursor' })
 
 vim.keymap.set('n', '<Leader>O', 'O<ESC>',
-  { desc = 'Open new line above and stay in normal mode' })
+  { desc = 'Begin a new line above the cursor and stay in normal mode' })
 
 vim.keymap.set('n', '<Leader>o', 'o<ESC>',
-  { desc = 'Open new line below and stay in normal mode' })
+  { desc = 'Begin a new line below the cursor and stay in normal mode' })
 
 vim.keymap.set('n', '<Leader><Tab>', ':buffer<Space><Tab>',
   { desc = 'Use wildmenu to quickly switch buffers' })
