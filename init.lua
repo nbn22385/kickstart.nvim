@@ -96,10 +96,10 @@ vim.keymap.set('n', '<Leader>gf', '^f/gf',
 vim.keymap.set('n', '<Leader>h', ':%s/<C-r><C-w>//g<Left><Left>',
   { desc = 'Replace all occurrences of word under cursor' })
 
-vim.keymap.set('n', '<Leader>O', 'O<ESC>',
+vim.keymap.set('n', '<Leader>O', 'mzO<ESC>`z',
   { desc = 'Begin a new line above the cursor and stay in normal mode' })
 
-vim.keymap.set('n', '<Leader>o', 'o<ESC>',
+vim.keymap.set('n', '<Leader>o', 'mzo<ESC>`z',
   { desc = 'Begin a new line below the cursor and stay in normal mode' })
 
 vim.keymap.set('n', '<Leader><Tab>', ':buffer<Space><Tab>',
