@@ -54,6 +54,21 @@ return {
 			},
 		}
 
+		local fuzzyFindFiles = function()
+			local path = vim.fn.expand("%:p")
+			builtin.grep_string(
+				no_preview("Fuzzy grep"),
+				{
+					cwd = require("lspconfig/util").root_pattern(".git")(path),
+					path_display = { 'smart' },
+					only_sort_text = true,
+					word_match = '-w',
+					search = '',
+				}
+			)
+		end
+
+		vim.keymap.set('n', '<leader>R', function() fuzzyFindFiles() end, {})
 		vim.keymap.set('n', '<leader>h', function() builtin.oldfiles(no_preview('Old files')) end, { desc = '[?] Find recently opened files' })
 		vim.keymap.set('n', '<leader>b', function() builtin.buffers(no_preview('Buffers')) end, { desc = '[ ] Find existing buffers' })
 		vim.keymap.set('n', '<leader>/', function() builtin.current_buffer_fuzzy_find(no_preview('Find in buffer')) end, { desc = '[/] Fuzzy find in current buffer' })
