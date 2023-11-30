@@ -125,6 +125,9 @@ vim.keymap.set('n', 'k', function() return vim.v.count > 1 and "m'" .. vim.v.cou
 vim.keymap.set('n', 'J', 'mzJ`z',
   { desc = 'Joining lines will keep cursor position' })
 
+vim.keymap.set('n', '*', '<Cmd>keepjumps normal! mzg*`z<CR>',
+  { desc = 'Prevent * from jumping to next search match' })
+
 vim.keymap.set('n', '+', '<C-a>', { desc = 'Increment numbers in normal mode' })
 vim.keymap.set('n', '-', '<C-x>', { desc = 'Decrement numbers in normal mode' })
 vim.keymap.set('x', '+', 'g<C-a>gv', { desc = 'Increment numbers in visual mode' })
