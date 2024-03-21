@@ -84,16 +84,16 @@ vim.keymap.set({ "i", "n" }, "<Esc>", "<Cmd>noh<CR><Esc>",
 vim.keymap.set('n', '<C-c>', '<Esc>',
   { desc = 'Disable vim\'s exit message when pressing C-c' })
 
-vim.keymap.set('n', '<Leader>w', ':w<CR>',
+vim.keymap.set('n', '<Leader>w', '<Cmd>w<CR>',
   { desc = 'Save a file' })
 
-vim.keymap.set('n', '<Leader>G', ':$tabnew | terminal lazygit<CR>',
+vim.keymap.set('n', '<Leader>G', '<Cmd>$tabnew | terminal lazygit<CR>',
   { desc = 'Open lazygit in a new tab', silent = true })
 
 vim.keymap.set('n', '<Leader>gf', '^f/gf',
   { desc = 'Go to first file on the line' })
 
-vim.keymap.set('n', '<Leader>h', ':%s/<C-r><C-w>//g<Left><Left>',
+vim.keymap.set('n', '<Leader>h', '<Cmd>%s/<C-r><C-w>//g<Left><Left>',
   { desc = 'Replace all occurrences of word under cursor' })
 
 vim.keymap.set('n', '<Leader>O', 'mzO<ESC>`z',
@@ -102,16 +102,16 @@ vim.keymap.set('n', '<Leader>O', 'mzO<ESC>`z',
 vim.keymap.set('n', '<Leader>o', 'mzo<ESC>`z',
   { desc = 'Begin a new line below the cursor and stay in normal mode' })
 
-vim.keymap.set('n', '<Leader><Tab>', ':buffer<Space><Tab>',
+vim.keymap.set('n', '<Leader><Tab>', '<Cmd>buffer<Space><Tab>',
   { desc = 'Use wildmenu to quickly switch buffers' })
 
 vim.keymap.set('n', '<Leader>=', 'gg=G<C-o><C-o>',
   { desc = 'Format entire file' })
 
-vim.keymap.set('n', '<Leader><Left>', ':vertical resize -3<CR>', { desc = 'Decrease vertical split width' })
-vim.keymap.set('n', '<Leader><Right>', ':vertical resize +3<CR>', { desc = 'Increase vertical split width' })
-vim.keymap.set('n', '<Leader><Up>', ':resize +3<CR>', { desc = 'Increase horizontal split width' })
-vim.keymap.set('n', '<Leader><Down>', ':resize -3<CR>', { desc = 'Increase horizontal split width' })
+vim.keymap.set('n', '<Leader><Left>', '<Cmd>vertical resize -3<CR>', { desc = 'Decrease vertical split width' })
+vim.keymap.set('n', '<Leader><Right>', '<Cmd>vertical resize +3<CR>', { desc = 'Increase vertical split width' })
+vim.keymap.set('n', '<Leader><Up>', '<Cmd>resize +3<CR>', { desc = 'Increase horizontal split width' })
+vim.keymap.set('n', '<Leader><Down>', '<Cmd>resize -3<CR>', { desc = 'Increase horizontal split width' })
 
 vim.keymap.set('n', '<Backspace>', '<C-^>',
   { desc = 'Toggle between alternate files' })
@@ -138,20 +138,20 @@ vim.keymap.set('n', '<C-w>j', '<C-w>J', { desc = 'Move window down' })
 vim.keymap.set('n', '<C-w>k', '<C-w>K', { desc = 'Move window up' })
 vim.keymap.set('n', '<C-w>l', '<C-w>L', { desc = 'Move window right' })
 
-vim.keymap.set('n', '[B', ':bfirst<CR>', { silent = true, desc = 'Go to first buffer' })
-vim.keymap.set('n', ']b', ':bnext<CR>', { silent = true, desc = 'Go to next buffer' })
-vim.keymap.set('n', '[b', ':bprevious<CR>', { silent = true, desc = 'Go to previous buffer' })
-vim.keymap.set('n', ']B', ':blast<CR>', { silent = true, desc = 'Go to last buffer' })
+vim.keymap.set('n', '[B', '<Cmd>bfirst<CR>', { desc = 'Go to first buffer' })
+vim.keymap.set('n', ']b', '<Cmd>bnext<CR>', { desc = 'Go to next buffer' })
+vim.keymap.set('n', '[b', '<Cmd>bprevious<CR>', { desc = 'Go to previous buffer' })
+vim.keymap.set('n', ']B', '<Cmd>blast<CR>', { desc = 'Go to last buffer' })
 
-vim.keymap.set('n', '[L', ':lfirst<CR>zz', { silent = true, desc = 'Go to first location list entry' })
-vim.keymap.set('n', ']l', ':lnext<CR>zz', { silent = true, desc = 'Go to next location list entry' })
-vim.keymap.set('n', '[l', ':lprevious<CR>zz', { silent = true, desc = 'Go to previous location list entry' })
-vim.keymap.set('n', ']L', ':llast<CR>zz', { silent = true, desc = 'Go to last location list entry' })
+vim.keymap.set('n', '[L', '<Cmd>lfirst<CR>zz', { desc = 'Go to first location list entry' })
+vim.keymap.set('n', ']l', '<Cmd>lnext<CR>zz', { desc = 'Go to next location list entry' })
+vim.keymap.set('n', '[l', '<Cmd>lprevious<CR>zz', { desc = 'Go to previous location list entry' })
+vim.keymap.set('n', ']L', '<Cmd>llast<CR>zz', { desc = 'Go to last location list entry' })
 
-vim.keymap.set('n', '[Q', ':cfirst<CR>zz', { silent = true, desc = 'Go to first quickfix list entry' })
-vim.keymap.set('n', ']q', ':cnext<CR>zz', { silent = true, desc = 'Go to next quickfix list entry' })
-vim.keymap.set('n', '[q', ':cprevious<CR>zz', { silent = true, desc = 'Go to previous quickfix list entry' })
-vim.keymap.set('n', ']Q', ':clast<CR>zz', { silent = true, desc = 'Go to last quickfix list entry' })
+vim.keymap.set('n', '[Q', '<Cmd>cfirst<CR>zz', { desc = 'Go to first quickfix list entry' })
+vim.keymap.set('n', ']q', '<Cmd>cnext<CR>zz', { desc = 'Go to next quickfix list entry' })
+vim.keymap.set('n', '[q', '<Cmd>cprevious<CR>zz', { desc = 'Go to previous quickfix list entry' })
+vim.keymap.set('n', ']Q', '<Cmd>clast<CR>zz', { desc = 'Go to last quickfix list entry' })
 
 vim.keymap.set('c', '<C-a>', '<Home>', { desc = 'Go to the beginning of the command line' })
 vim.keymap.set('c', '<C-e>', '<End>', { desc = 'Go to the end of the command line' })
